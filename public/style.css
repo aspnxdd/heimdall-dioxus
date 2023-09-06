@@ -1,0 +1,11 @@
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(199, 199, 199);
+  color: black;
+}
