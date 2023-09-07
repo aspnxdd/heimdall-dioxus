@@ -12,4 +12,5 @@ heimdall = { git = "https://github.com/Jon-Becker/heimdall-rs" }
 dioxus = { version = "*" }
 dioxus-ssr = { version = "*" }
 actix-files = "0.6.2"
+shuttle-static-folder = "0.25.0"
 

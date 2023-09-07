@@ -2069,6 +2069,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "fs_extra"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "42703706b716c37f96a77aea830392ad231f44c9e9a67872fa5548707e11b11c"
+
+[[package]]
 name = "funty"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2427,6 +2433,7 @@ dependencies = [
  "heimdall",
  "shuttle-actix-web",
  "shuttle-runtime",
+ "shuttle-static-folder",
  "tokio",
 ]
 
@@ -4493,6 +4500,20 @@ dependencies = [
  "shuttle-common",
  "strfmt",
  "thiserror",
+]
+
+[[package]]
+name = "shuttle-static-folder"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f04d40b5b7f7ca70b6c0c8c4e28d43e117de02638a76cfb5bb5302c4e29118ab"
+dependencies = [
+ "async-trait",
+ "dunce",
+ "fs_extra",
+ "serde",
+ "shuttle-service",
+ "tracing",
 ]
 
 [[package]]
