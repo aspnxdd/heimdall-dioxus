@@ -8,4 +8,92 @@ body {
   padding: 0;
   background: rgb(199, 199, 199);
   color: black;
+  height: 100vh;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+input {
+  width: 40rem;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  width: 40rem;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: cadetblue;
+  color: white;
+
+  &:hover {
+    background: rgb(0, 128, 128);
+  }
+
+  &:disabled {
+    background: rgb(129, 149, 149);
+    cursor: not-allowed;
+  }
+}
+
+table {
+  min-width: 60%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+tr {
+  background-color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
 }
