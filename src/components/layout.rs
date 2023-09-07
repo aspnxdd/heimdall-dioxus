@@ -4,13 +4,12 @@ use crate::components::footer::Footer;
 
 #[derive(Props)]
 pub struct PageProps<'a> {
-    #[props(into)]
     children: Element<'a>,
 }
 
 #[allow(non_snake_case)]
 pub fn Layout<'a>(cx: Scope<'a, PageProps<'a>>) -> Element {
-    cx.render(rsx!(
+    render!(
         head {
             title {
                 "Heimdall Dioxus"
@@ -36,5 +35,5 @@ pub fn Layout<'a>(cx: Scope<'a, PageProps<'a>>) -> Element {
             &cx.props.children,
             Footer {}
         }
-    ))
+    )
 }

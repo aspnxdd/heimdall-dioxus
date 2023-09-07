@@ -13,7 +13,7 @@ pub struct PageProps {
 
 #[allow(non_snake_case)]
 fn Error_view(cx: Scope) -> Element {
-    cx.render(rsx!(
+    render!(
         Layout {
             main{
                 h1 {
@@ -21,18 +21,15 @@ fn Error_view(cx: Scope) -> Element {
                 }
             }
         }
-    ))
+    )
 }
 
 #[allow(non_snake_case)]
-pub fn Decode_tx_view(cx: Scope<PageProps>) -> Element {
-    println!("Rendering Decode_tx_view {}", cx.props.tx_hash);
+pub fn DecodeTxView(cx: Scope<PageProps>) -> Element {
     let result = panic::catch_unwind(|| decode_calldata(&cx.props.tx_hash));
-    if result.is_err() {
-        return cx.render(rsx!(Error_view {}));
-    }
-    match result.unwrap() {
-        Some(decoded_calldata) => {
+
+    match result {
+        Ok(Some(decoded_calldata)) => {
             let tx_hash_short = format!(
                 "{}...{}",
                 &cx.props.tx_hash[..6],
@@ -49,7 +46,7 @@ pub fn Decode_tx_view(cx: Scope<PageProps>) -> Element {
                 .map(|(input, decoded_input)| format!("{}: {}", input, decoded_input.to_string()))
                 .collect::<Vec<String>>();
 
-            cx.render(rsx!(
+            render!(
                 Layout {
                     main{
                         table {
@@ -89,10 +86,13 @@ pub fn Decode_tx_view(cx: Scope<PageProps>) -> Element {
 
                     }
                 }
-            ))
+            )
         }
-        None => {
-            return cx.render(rsx!(Error_view {}));
+        Ok(None) => {
+            return render!(Error_view {});
+        }
+        Err(_) => {
+            return render!(Error_view {});
         }
     }
 }

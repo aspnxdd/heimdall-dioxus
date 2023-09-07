@@ -1,16 +1,16 @@
 mod components;
 mod views;
 
-use std::path::PathBuf;
 use actix_web::{get, web, web::ServiceConfig, HttpResponse};
 use dioxus::prelude::*;
 use shuttle_actix_web::ShuttleActixWeb;
-use views::decode_tx_view::{Decode_tx_view, PageProps};
-use views::main_view::Main_view;
+use std::path::PathBuf;
+use views::decode_tx_view::{DecodeTxView, PageProps};
+use views::main_view::MainView;
 
 #[get("/")]
 async fn app_endpoint() -> HttpResponse {
-    let mut view = VirtualDom::new(Main_view);
+    let mut view = VirtualDom::new(MainView);
     let _ = view.rebuild();
 
     HttpResponse::Ok()
@@ -22,7 +22,7 @@ async fn app_endpoint() -> HttpResponse {
 async fn decode_tx(path: web::Path<String>) -> HttpResponse {
     let tx_hash = path.into_inner();
 
-    let mut view = VirtualDom::new_with_props(Decode_tx_view, PageProps { tx_hash });
+    let mut view = VirtualDom::new_with_props(DecodeTxView, PageProps { tx_hash });
     let _ = view.rebuild();
 
     HttpResponse::Ok()

@@ -3,31 +3,31 @@ use crate::components::layout::Layout;
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
-pub fn Main_view(cx: Scope) -> Element {
-    cx.render(rsx!(
-        Layout {
-            main{
-                h1 {
-                    "Heimdall Dioxus"
-                }
-                h4 {
-                    "Decode Ethereum transactions"
-                }
-                form {
-                    id: "form",
-                    input {
-                        placeholder: "Tx hash...",
-                        id:"input"
-                    },
-                    button {
-                        id: "button",
-                        disabled: true,
-                        "Decode Transaction"
-                    }
+pub fn MainView(cx: Scope) -> Element {
+    render!(
+    Layout {
+        main{
+            h1 {
+                "Heimdall Dioxus"
+            }
+            h4 {
+                "Decode Ethereum transactions"
+            }
+            form {
+                id: "form",
+                input {
+                    placeholder: "Tx hash...",
+                    id:"input"
+                },
+                button {
+                    id: "button",
+                    disabled: true,
+                    "Decode Transaction"
                 }
             }
-            script {
-                "
+        }
+        script {
+            "
                     const input = document.getElementById(`input`);
                     const form = document.getElementById(`form`);
                     const button = document.getElementById(`button`);
@@ -46,6 +46,7 @@ pub fn Main_view(cx: Scope) -> Element {
                     }}
                     
                 "
+            }
         }
-    }))
+    )
 }
